@@ -1,0 +1,28 @@
+{% extends 'gymtrack/base.html' %}
+
+{% block content %}
+	{% for workout in myWorkouts %}
+			<div class="workoutListItem">
+				<h1>Worked out at {{ workout.gym }}</h1>
+				<p>on {{ workout.workout_time }}</p>
+				<table class="table">
+					<tr>
+						<th>Exercise</th>
+						<th>Max Weight</th>
+						<th>Sets</th>
+						<th>Reps/Set</th>
+						<th>Duration</th>
+					</tr>
+					{% for exercise in workout.exercise_set.all %}
+					<tr>
+						<td>{{ exercise.get_name_display }}</td>
+						<td>{{ exercise.max_weight }}</td>
+						<td>{{ exercise.num_sets }}</td>
+						<td>{{ exercise.reps_per_set }}</td>
+						<td>{{ exercise.duration }}</td>
+					</tr>
+					{% endfor %}
+				</table>
+		    </div>
+	{% endfor %}
+{% endblock %}

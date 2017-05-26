@@ -1,0 +1,26 @@
+.page-header {
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+body{
+	background-image: url("http://www.gainsthetics.com/wp-content/uploads/2016/07/gym.jpg");
+	padding-top: 75px;
+}
+h1 a {
+    color: #FCA205;
+}
+.content{
+	background-color: rgba(255, 255, 255, 0.5);
+	margin: 20px;
+}
+.workoutListItem{
+	border: 15px solid rgba(0, 0, 0, 0.5);
+	border-radius: 15px;
+	margin: 5px;
+	padding: 5px;
+}
+.table{
+	background-color: rgba(255, 255, 255, 0.6);
+}

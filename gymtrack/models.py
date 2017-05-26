@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from datetime import timedelta
+from django.contrib.auth.models import User
 
 # Create your models here.
 DEFAULT_WORKOUT_ID = 1
@@ -34,7 +35,7 @@ class Exercise(models.Model):
 	num_sets = models.PositiveSmallIntegerField()
 	reps_per_set = models.PositiveSmallIntegerField()
 	duration = models.DurationField(blank=True, null=True)
-	workout = models.ForeignKey('Workout', default = DEFAULT_WORKOUT_ID);
+	workout = models.ForeignKey('Workout', default = DEFAULT_WORKOUT_ID)
 
 	def __str__(self):
 		return self.name
@@ -48,6 +49,7 @@ class Gym(models.Model):
 		return self.name
 
 class Workout(models.Model):
+	user = models.ForeignKey('auth.User', default=1)
 	gym = models.ForeignKey('Gym', on_delete=models.CASCADE)
 	workout_time = models.DateTimeField(default = timezone.now)
 	# exercises = models.ManyToManyField(Exercise)
