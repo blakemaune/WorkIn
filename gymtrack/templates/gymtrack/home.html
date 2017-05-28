@@ -1,0 +1,38 @@
+{% extends 'gymtrack/base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+	
+
+	{% if user.is_authenticated %}
+		<h1>Welcome back, {{ user }}!</h1>
+		<a href="{% url 'new_workout' %}" class = "btn btn-default btn-lg">Log a New Workout</a>
+		<a href="{% url 'workout_list' %}" class = "btn btn-default btn-lg">Go to My Workouts</a>
+	{% else %}
+		<h1>Work Me In!</h1>
+		<h3>A new way to track your workouts</h3>
+		<p>WorkIn simplifies the workout tracking process by stripping away all unnecessary features and annoyances and letting you quickly and simply track your progress.</p>
+		<a href="{% url 'login' %}" class = "btn btn-default btn-lg">Sign in</a>
+		<a href="{% url 'new_user' %}" class = "btn btn-default btn-lg">Sign me up</a>
+	{% endif %}
+
+
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 text-center">
+			<h3>Simplicity</h3>
+			<p>Lorem ipsum test test test</p>
+		</div>
+		<div class="col-md-4 text-center">
+			<h3>Speed</h3>
+			<p>Lorem ipsum test test test</p>
+		</div>
+		<div class="col-md-4 text-center">
+			<h3>Strength</h3>
+			<p>Lorem ipsum test test test</p>
+		</div>
+	</div>
+</div>
+{% endblock %}

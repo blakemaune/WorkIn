@@ -31,9 +31,9 @@ class Exercise(models.Model):
 	    ('unknown', 'Unknown'),
 	)
 	name = models.CharField(max_length=100, choices=NAME_CHOICES)
-	max_weight = models.PositiveSmallIntegerField()
-	num_sets = models.PositiveSmallIntegerField()
-	reps_per_set = models.PositiveSmallIntegerField()
+	max_weight = models.PositiveSmallIntegerField(default=0)
+	num_sets = models.PositiveSmallIntegerField(default=0)
+	reps_per_set = models.PositiveSmallIntegerField(default=0)
 	duration = models.DurationField(blank=True, null=True)
 	workout = models.ForeignKey('Workout', default = DEFAULT_WORKOUT_ID)
 

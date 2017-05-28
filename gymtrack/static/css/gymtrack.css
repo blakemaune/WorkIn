@@ -1,26 +1,38 @@
-.page-header {
-    background-color: rgba(255, 255, 255, 0.5);
-    margin-top: 0;
-    padding: 20px 20px 20px 40px;
+body{
+	padding-top: 65px;
+	background-color: rgba(255, 255, 255, 0.5);
+	background-image: url("http://www.gainsthetics.com/wp-content/uploads/2016/07/gym.jpg");
+	background-size: cover;
+	background-attachment: fixed;
 }
 
-body{
-	background-image: url("http://www.gainsthetics.com/wp-content/uploads/2016/07/gym.jpg");
-	padding-top: 75px;
+a { color: inherit; } 
+
+.container{
+	background-color: rgba(255, 255, 255, 0.9);
+	border-radius: 1em;
 }
-h1 a {
-    color: #FCA205;
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }
-.content{
-	background-color: rgba(255, 255, 255, 0.5);
-	margin: 20px;
+
+.row{
+	padding: 1em;
+	margin: 1em;
 }
-.workoutListItem{
-	border: 15px solid rgba(0, 0, 0, 0.5);
-	border-radius: 15px;
-	margin: 5px;
-	padding: 5px;
+
+.jumbotron{
+	text-align: center;
+	background-color: rgba(255, 255, 255, 0.9);
 }
-.table{
-	background-color: rgba(255, 255, 255, 0.6);
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
 }

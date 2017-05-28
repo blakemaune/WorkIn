@@ -25,19 +25,18 @@ SECRET_KEY = '3t#8!n!n*8(woru2nzb1km@u(5=jtw56-80f9f$h#o@v25zgx='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
-
+ALLOWED_HOSTS = []
 
 # Application definition
 
 INSTALLED_APPS = [
+    'gymtrack',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gymtrack',
 ]
 
 MIDDLEWARE = [
@@ -91,6 +90,7 @@ DATABASES = {
 
 }
 
+LOGIN_REDIRECT_URL = 'home'
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators

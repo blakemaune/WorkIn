@@ -1,28 +1,50 @@
 {% extends 'gymtrack/base.html' %}
 
+
 {% block content %}
+<div class="container">
+	<div class="row">
+		<div class="col col-md-11">
+			<h1>My Workouts</h1>
+		</div>
+
+		<div class="col col-md-1">
+			<a class="btn btn-lg btn-default" href="{% url 'new_workout' %}">
+				<span class="glyphicon glyphicon-plus"></span>
+			</a>
+		</div>
+	</div>
 	{% for workout in myWorkouts %}
-			<div class="workoutListItem">
-				<h1>Worked out at {{ workout.gym }}</h1>
-				<p>on {{ workout.workout_time }}</p>
-				<table class="table">
-					<tr>
-						<th>Exercise</th>
-						<th>Max Weight</th>
-						<th>Sets</th>
-						<th>Reps/Set</th>
-						<th>Duration</th>
-					</tr>
-					{% for exercise in workout.exercise_set.all %}
-					<tr>
-						<td>{{ exercise.get_name_display }}</td>
-						<td>{{ exercise.max_weight }}</td>
-						<td>{{ exercise.num_sets }}</td>
-						<td>{{ exercise.reps_per_set }}</td>
-						<td>{{ exercise.duration }}</td>
-					</tr>
-					{% endfor %}
-				</table>
-		    </div>
+		<div class="row">
+
+			<a href = "{% url 'workout_detail' pk=workout.pk %}">
+			<div class="col-sm-6"><h3>Worked out at {{ workout.gym }}</h3></div>
+			<div class="col-sm-4"><p>{{ workout.workout_time }}</p></div>
+			</a>
+
+			<div class="col-sm-2"><button class="btn btn-md btn-primary" data-toggle="collapse" data-target="#demo{{ workout.pk }}">Expand</button></div>
+		</div>
+		<div id="demo{{ workout.pk }}" class="collapse">
+			<table class="table table-bordered table-striped table-condensed">
+				<tr>
+					<th>Exercise</th>
+					<th>Max Weight</th>
+					<th>Sets</th>
+					<th>Reps/Set</th>
+					<th>Duration</th>
+				</tr>
+				{% for exercise in workout.exercise_set.all %}
+				<tr>
+					<td>{{ exercise.get_name_display }}</td>
+					<td>{{ exercise.max_weight }}</td>
+					<td>{{ exercise.num_sets }}</td>
+					<td>{{ exercise.reps_per_set }}</td>
+					<td>{{ exercise.duration }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+		<hr>
 	{% endfor %}
+</div>
 {% endblock %}
